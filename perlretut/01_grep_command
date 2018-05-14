@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+
+$regex = shift;
+while (<>) {
+  print if /$regex/;
+}
