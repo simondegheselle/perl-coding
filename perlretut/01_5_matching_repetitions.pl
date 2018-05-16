@@ -27,8 +27,7 @@ $year =~ /\d{2}(\d{2})?/;   # same thing written differently. However,
 
 /a??/     # match 'a' 0 or 1 times. Try 0 first, then 1.
 /a*?/     # match 'a' 0 or more times, i.e., any number of times, but as few times as possible
-/a+?/     # match 'a' 1 or more times, i.e., at least once, but as few times as possible
+/a+?/     # match 'a' 1 or more times, i.e., at least once, but a`s few times as possible
 /a{n,m}?/ # match at least n times, not more than m times, as few times as possible
 /a{n,}?/  # match at least n times, but as few times as possible
 /a{n}?/   # match exactly n times same as /a{n}/
-
