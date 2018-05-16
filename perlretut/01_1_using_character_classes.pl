@@ -24,3 +24,25 @@
 # \S is a negated \s; it represents any non-whitespace character [^\s]
 # \W is a negated \w; it represents any non-word character [^\w]
 # The period '.' matches any character but "\n"
+# \ b boundary between word character and a non word character
+
+"" =~ /^$/;         # matches
+"\n" =~ /^$/;       # matches, "\n" is ignored
+"" =~ /./;          # doesn’t match; it needs a char
+"" =~ /^.$/;        # doesn’t match; it needs a char
+"\n" =~ /^.$/;      # doesn’t match; it needs a char other than "\n"
+"a" =~ /^.$/;       # matches
+"a\n" =~ /^.$/;     # matches, ignores the "\n"
+
+# //s and //m modifiers and stand for single line and multi-line and they determine
+# whether a string is to be treated as one continuous string, or as a set of lines.
+
+$x = "There once was a girl\nWho programmed in Perl\n";
+$x =~ /^Who/;       # doesn’t match, "Who" not at start of string
+$x =~ /^Who/s;      # doesn’t match, "Who" not at start of string
+$x =~ /^Who/m;      # matches, "Who" at start of second line
+$x =~ /^Who/sm;     # matches, "Who" at start of second line
+$x =~ /girl.Who/;   # doesn’t match, "." doesn’t match "\n"
+$x =~ /girl.Who/s;  # matches, "." matches "\n"
+$x =~ /girl.Who/m;  # doesn’t match, "." doesn’t match "\n"
+$x =~ /girl.Who/sm; # matches, "." matches "\n"
